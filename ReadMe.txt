@@ -1,0 +1,24 @@
+编译方法：eclipse编译以Driver类导出Runnable jar包Driver.jar
+
+程序结构：
+Driver.java为整体mapreduce任务运行的驱动程序
+Job1.java为进行数据预处理，抽取与任务互动相关数据的mapreduce代码
+Job2.java为进行人物同现统计的mapreduce代码
+Job3.java为人物关系图构建与特征归一化的mapreduce代码
+PageRank.java为进行pagerank计算的mapreduce代码
+PageRankViewer.java为将最后pagerank值从大到小进行排序输出的mapreduce代码
+PageRankDriver.java为pagerank数次迭代并按pagerank值排序输出的驱动程序
+LPA.java为标签传播的mapreduce代码
+LPAViewer.java为将标签传播结果按标签聚集输出的mapreduce代码
+LPADriver.java为LPA数次迭代并按标签聚集输出的驱动程序
+
+运行环境：hadoop-2.7，jdk-1.7
+
+运行命令：Hadoop jar Driver.jar路径 hdfs小说路径 hdfs人名表位置
+
+输出结果：
+输出output1是Job1结果
+输出output2是Job2结果
+输出output3是Job3结果
+输出output4 是pagerank结果其中Data-n是n次迭代的结果，最后Finalrank是从大到小排序后的结果
+输出output5是LPA结果，其中Data-n是n次迭代的结果，最后Finallabel是相同标签聚在一起的结果
